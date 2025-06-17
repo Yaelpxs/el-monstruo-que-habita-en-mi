@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>"El monstruo que habita en mí"</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      width: 100%;
+      aspect-ratio: 2/3;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .footer-text {
+      max-width: 800px;
+      font-style: italic;
+      color: #444;
+      text-align: center;
+      line-height: 1.5;
+      user-select: none;
+      margin-bottom: 40px;
+      padding: 0 10px;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-y: auto;
+      max-height: 80vh;
+      font-size: 14px;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>"El monstruo que habita en mí"</h1>
+
+  <div class="card-container">
+    <!-- Cada tarjeta se vincula con un modal de texto por índice -->
+    <div class="card" data-index="0">
+      <img src="img/critico.jpg" alt="Imagen 1">
+    </div>
+    <div class="card" data-index="1">
+      <img src="img/vacio.jpg" alt="Imagen 2">
+    </div>
+    <div class="card" data-index="2">
+      <img src="img/ansiedad.jpg" alt="Imagen 3">
+    </div>
+    <div class="card" data-index="3">
+      <img src="img/control.jpg" alt="Imagen 4">
+    </div>
+    <div class="card" data-index="4">
+      <img src="img/silencio.jpg" alt="Imagen 5">
+    </div>
+    <div class="card" data-index="5">
+      <img src="img/comparadoras.jpg" alt="Imagen 6">
+    </div>
+    <div class="card" data-index="6">
+      <img src="img/nostalgico.jpg" alt="Imagen 7">
+    </div>
+    <div class="card" data-index="7">
+      <img src="img/heridaabandono.jpg" alt="Imagen 8">
+    </div>
+  </div>
+
+  <div class="footer-text">
+    “Has caminado por los laberintos de tu mundo interno, con valor y ternura.<br />
+    No estás solo/a: cada parte de ti ha sido vista.<br />
+    El monstruo que había en ti… ahora también es una historia de amor propio.”<br /><br />
+    📜 Psic. Frida Atala Pulido Sánchez
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <div id="modal-text"></div>
+    </div>
+  </div>
+
+  <script>
+    const textos = [
+      `¿Cómo habla este monstruo dentro de ti?
+Escribe o comparte una frase que te repitas con dureza. ¿A quién se parece esa voz?
+
+¿En qué momentos aparece más fuerte?
+Recuerda una situación reciente en la que sentiste que todo lo hacías mal. ¿Qué esperabas de ti?
+
+¿Qué intenta proteger este crítico?
+Imagina que en el fondo, esta criatura quiere cuidarte. ¿De qué cree que te está defendiendo?
+
+Dibújalo con menos ojos.
+¿Qué cambiaría si no pudiera verte todo el tiempo? ¿Qué emoción surgiría si lo miraras con compasión?
+
+Transfórmalo en un aliado.
+Si este monstruo pudiera ayudarte de otra manera, ¿cuál sería? Redefine su función.
+`,
+      `¿Dónde sientes el vacío?
+Ubica en tu cuerpo ese hueco silencioso. ¿Tiene forma, peso o temperatura? ¿Desde cuándo lo cargas?
+
+¿Qué historia dejó ese espacio sin llenar?
+Explora un momento en el que sentiste una gran pérdida, desconexión o abandono. ¿Qué necesitabas en ese entonces?
+
+¿Qué intenta decirte este vacío?
+A veces, el silencio grita. ¿Qué mensaje emocional podría estar guardando este hueco invisible?
+
+Habla con él.
+Imagínalo frente a ti como una sombra sin rostro. ¿Qué le dirías si pudiera escucharte sin juzgarte?
+
+Llévale algo.
+¿Qué le ofrecerías para que no duela tanto: una palabra, una imagen, una canción, un recuerdo? Anótalo o dibújalo.
+`,
+      `¿Dónde arde dentro de ti?
+Cierra los ojos. Identifica el lugar en tu cuerpo donde sientes esa quemazón interna. ¿Cómo se manifiesta? ¿Es constante, intermitente, punzante?
+
+Ponle palabras al fuego.
+Si pudiera hablar, ¿qué diría este fuego? ¿Qué teme? ¿Qué intenta prevenir?
+
+¿Qué alimenta sus llamas?
+Explora los pensamientos que avivan esta ansiedad. ¿Qué escenarios imaginas? ¿Qué pasaría si los dejaras ir?
+
+No la apagues. Escúchala.
+En vez de huir de ella, acércate. ¿Qué historia emocional guarda? ¿Hay un origen que puedas recordar?
+
+Transforma el fuego en luz.
+Escribe una frase o afirmación que convierta esta ansiedad en un llamado a cuidarte mejor. Ejemplo: “No tengo que controlarlo todo para estar a salvo.”`,
+      `¿Qué intentas atar con tus manos internas?
+Piensa en una situación de tu vida donde sientes la necesidad de tener el control total. ¿Qué temes que ocurra si no lo logras?
+
+Escucha al que ordena dentro de ti.
+Imagina que este monstruo habla. ¿Qué frases repite? ¿Te protege de la incertidumbre, del caos, del dolor?
+
+¿Qué hay detrás del control?
+Respira profundo. Explora: ¿el control te da seguridad, pertenencia, valor? ¿O es una armadura para evitar sentir?
+
+Suelta una cuerda.
+Visualiza simbólicamente que le quitas una cuerda al monstruo. ¿Qué cambia? ¿Qué emoción aparece en su lugar?
+
+El orden no es igual a paz.
+Escribe una frase que te recuerde que soltar no es fallar. Ejemplo: “Confío en lo que no depende de mí.”
+`,
+      `¿Qué palabra no ha podido salir?
+Recuerda una emoción, frase o verdad que has guardado por miedo, vergüenza o por no herir a otros. ¿Qué parte de ti se quedó atrapada ahí?
+
+¿Qué protege tu silencio?
+¿A quién cuida esta parte que calla? ¿Qué teme que pase si se expresa?
+
+Imagina que sí pudieras hablar.
+Si tu voz fuera libre y segura, ¿qué dirías? ¿Cómo se siente tu cuerpo al imaginarlo?
+
+El cuerpo habla cuando la voz calla.
+¿Dónde sientes este silencio en el cuerpo? Dibuja esa zona. ¿Tiene forma, temperatura, textura?
+
+Ritual de liberación simbólica:
+Escribe lo no dicho en una hoja. Puedes leerlo en voz alta para ti o romperlo después. El acto de decir, aunque sea en soledad, ya es sanación.
+`,
+      `¿A quién observa con lupa esta parte de ti?
+Piensa en las personas con las que más te comparas. ¿Qué tienen que crees que a ti te falta?
+
+¿Qué crees que dice de ti no tener eso?
+¿Qué narrativa se activa cuando comparas tu cuerpo, logros, relaciones o emociones? ¿Qué juicio nace en silencio?
+
+Escucha a la voz que te exige.
+¿Es tuya o heredada? ¿Desde cuándo te mides con otros como si fuera una competencia?
+
+¿Qué historia no se ve en la vida ajena?
+Recuerda: lo visible es solo una parte. ¿Qué puede estar escondido detrás de esa “vida perfecta” que observas?
+
+La única medida eres tú.
+Escribe una afirmación que reafirme tu propio ritmo:
+“Mi camino tiene sentido, aunque no se parezca al de nadie más.” o “No soy menos por no estar donde otros están.”
+`,
+      `¿A qué momento regresa este fantasma?
+Evoca ese recuerdo al que vuelves una y otra vez. ¿Qué parte de ti se quedó allá? ¿Qué añoras realmente?
+
+¿Qué emoción quedó congelada en el tiempo?
+¿Es tristeza, culpa, amor no expresado, dolor no elaborado? ¿Qué no pudo decirse o vivirse en ese entonces?
+
+¿Qué te impide despedirte?
+A veces no soltamos porque tememos olvidar. ¿Qué crees que perderías si dejaras ir? ¿Qué aún necesita ser reconocido?
+
+Habla con el fantasma.
+Cierra los ojos y dile lo que nunca pudiste. Escríbele una carta. Puedes terminar con: “Te honro y ahora sigo adelante.”
+
+Llévalo contigo de otro modo.
+Transforma el recuerdo en algo que te acompañe sin atraparte. Dibuja un símbolo o elige un objeto que represente lo vivido… y lo superado.
+`,
+      `¿En qué momento te sentiste sola por primera vez?
+Permite que esa escena regrese suavemente. ¿Quién se fue, se ausentó o no estuvo emocionalmente presente?
+
+¿Cómo reacciona esta parte cuando alguien se aleja?
+¿Se activa el miedo, la necesidad de complacer, el enojo, la tristeza? ¿Qué haces para no sentir el vacío?
+
+¿Qué le dirías hoy a esa niña que esperó compañía?
+Imagina que puedes abrazarla y hablarle desde tu adultez. ¿Qué palabras necesitaría oír para no sentir que el amor siempre se va?
+
+Estás contigo. Y eso también es compañía.
+¿Qué ritual o acto puedes hacer para acompañarte mejor cuando aparece esa sensación de abandono?
+
+Escribe esta frase:
+“Mi presencia es un refugio, no un castigo. No estoy sola cuando me abrazo.”`
+    ];
+
+    const cards = document.querySelectorAll('.card');
+    const modal = document.getElementById('modal');
+    const modalText = document.getElementById('modal-text');
+    const closeModal = document.getElementById('closeModal');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const index = card.getAttribute('data-index');
+        modalText.innerHTML = textos[index];
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
