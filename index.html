@@ -101,6 +101,9 @@
         font-size: 13px;
       }
     }
+    #modal-text {
+    white-space: pre-wrap;
+  }
   </style>
 </head>
 <body>
@@ -152,126 +155,125 @@
 
   <script>
     const textos = [
-      `¿Cómo habla este monstruo dentro de ti?<br>
-Escribe o comparte una frase que te repitas con dureza. ¿A quién se parece esa voz?<br/><br/>
+      `¿Cómo habla este monstruo dentro de ti?
+Escribe o comparte una frase que te repitas con dureza. ¿A quién se parece esa voz?
 
-¿En qué momentos aparece más fuerte?<br/>
-Recuerda una situación reciente en la que sentiste que todo lo hacías mal. ¿Qué esperabas de ti?<br/><br/>
+¿En qué momentos aparece más fuerte?
+Recuerda una situación reciente en la que sentiste que todo lo hacías mal. ¿Qué esperabas de ti?
 
-¿Qué intenta proteger este crítico?<br/>
-Imagina que en el fondo, esta criatura quiere cuidarte. ¿De qué cree que te está defendiendo?<br/>
-<br/>
-Dibújalo con menos ojos.<br/>
-¿Qué cambiaría si no pudiera verte todo el tiempo? ¿Qué emoción surgiría si lo miraras con compasión?<br/><br/>
+¿Qué intenta proteger este crítico?
+Imagina que en el fondo, esta criatura quiere cuidarte. ¿De qué cree que te está defendiendo?
 
-Transfórmalo en un aliado.<br/>
-Si este monstruo pudiera ayudarte de otra manera, ¿cuál sería? Redefine su función.<br/><br/>
+Dibújalo con menos ojos.
+¿Qué cambiaría si no pudiera verte todo el tiempo? ¿Qué emoción surgiría si lo miraras con compasión?
+
+Transfórmalo en un aliado.
+Si este monstruo pudiera ayudarte de otra manera, ¿cuál sería? Redefine su función.
 `,
-      `¿Dónde sientes el vacío?<br/>
-Ubica en tu cuerpo ese hueco silencioso. ¿Tiene forma, peso o temperatura? ¿Desde cuándo lo cargas?<br/><br/>
+      `¿Dónde sientes el vacío?
+Ubica en tu cuerpo ese hueco silencioso. ¿Tiene forma, peso o temperatura? ¿Desde cuándo lo cargas?
 
-¿Qué historia dejó ese espacio sin llenar?<br/>
-Explora un momento en el que sentiste una gran pérdida, desconexión o abandono. ¿Qué necesitabas en ese entonces?<br/><br/>
+¿Qué historia dejó ese espacio sin llenar?
+Explora un momento en el que sentiste una gran pérdida, desconexión o abandono. ¿Qué necesitabas en ese entonces?
 
-¿Qué intenta decirte este vacío?<br/>
-A veces, el silencio grita. ¿Qué mensaje emocional podría estar guardando este hueco invisible?<br/><br/>
+¿Qué intenta decirte este vacío?
+A veces, el silencio grita. ¿Qué mensaje emocional podría estar guardando este hueco invisible?
 
-Habla con él.<br/>
-Imagínalo frente a ti como una sombra sin rostro. ¿Qué le dirías si pudiera escucharte sin juzgarte?<br/><br/>
+Habla con él.
+Imagínalo frente a ti como una sombra sin rostro. ¿Qué le dirías si pudiera escucharte sin juzgarte?
 
-Llévale algo.<br/>
+Llévale algo.
 ¿Qué le ofrecerías para que no duela tanto: una palabra, una imagen, una canción, un recuerdo? Anótalo o dibújalo.
 `,
-      `¿Dónde arde dentro de ti?<br/>
-Cierra los ojos. Identifica el lugar en tu cuerpo donde sientes esa quemazón interna. ¿Cómo se manifiesta? ¿Es constante, intermitente, punzante?<br/><br/>
+      `¿Dónde arde dentro de ti?
+Cierra los ojos. Identifica el lugar en tu cuerpo donde sientes esa quemazón interna. ¿Cómo se manifiesta? ¿Es constante, intermitente, punzante?
 
-Ponle palabras al fuego.<br/>
-Si pudiera hablar, ¿qué diría este fuego? ¿Qué teme? ¿Qué intenta prevenir?<br/><br/>
+Ponle palabras al fuego.
+Si pudiera hablar, ¿qué diría este fuego? ¿Qué teme? ¿Qué intenta prevenir?
 
-¿Qué alimenta sus llamas?<br/>
-Explora los pensamientos que avivan esta ansiedad. ¿Qué escenarios imaginas? ¿Qué pasaría si los dejaras ir?<br/><br/>
+¿Qué alimenta sus llamas?
+Explora los pensamientos que avivan esta ansiedad. ¿Qué escenarios imaginas? ¿Qué pasaría si los dejaras ir?
 
-No la apagues. Escúchala.<br/>
-En vez de huir de ella, acércate. ¿Qué historia emocional guarda? ¿Hay un origen que puedas recordar?<br/><br/>
+No la apagues. Escúchala.
+En vez de huir de ella, acércate. ¿Qué historia emocional guarda? ¿Hay un origen que puedas recordar?
 
-Transforma el fuego en luz.<br/>
-Escribe una frase o afirmación que convierta esta ansiedad en un llamado a cuidarte mejor. Ejemplo: “No tengo que controlarlo todo para estar a salvo.”<br/><br/>
+Transforma el fuego en luz.
+Escribe una frase o afirmación que convierta esta ansiedad en un llamado a cuidarte mejor. Ejemplo: “No tengo que controlarlo todo para estar a salvo.”`,
+      `¿Qué intentas atar con tus manos internas?
+Piensa en una situación de tu vida donde sientes la necesidad de tener el control total. ¿Qué temes que ocurra si no lo logras?
+
+Escucha al que ordena dentro de ti.
+Imagina que este monstruo habla. ¿Qué frases repite? ¿Te protege de la incertidumbre, del caos, del dolor?
+
+¿Qué hay detrás del control?
+Respira profundo. Explora: ¿el control te da seguridad, pertenencia, valor? ¿O es una armadura para evitar sentir?
+
+Suelta una cuerda.
+Visualiza simbólicamente que le quitas una cuerda al monstruo. ¿Qué cambia? ¿Qué emoción aparece en su lugar?
+
+El orden no es igual a paz.
+Escribe una frase que te recuerde que soltar no es fallar. Ejemplo: “Confío en lo que no depende de mí.”
 `,
-      `¿Qué intentas atar con tus manos internas?<br/>
-Piensa en una situación de tu vida donde sientes la necesidad de tener el control total. ¿Qué temes que ocurra si no lo logras?<br/><br/>
+      `¿Qué palabra no ha podido salir?
+Recuerda una emoción, frase o verdad que has guardado por miedo, vergüenza o por no herir a otros. ¿Qué parte de ti se quedó atrapada ahí?
 
-Escucha al que ordena dentro de ti.<br/>
-Imagina que este monstruo habla. ¿Qué frases repite? ¿Te protege de la incertidumbre, del caos, del dolor?<br/><br/>
+¿Qué protege tu silencio?
+¿A quién cuida esta parte que calla? ¿Qué teme que pase si se expresa?
 
-¿Qué hay detrás del control?<br/>
-Respira profundo. Explora: ¿el control te da seguridad, pertenencia, valor? ¿O es una armadura para evitar sentir?<br/><br/>
+Imagina que sí pudieras hablar.
+Si tu voz fuera libre y segura, ¿qué dirías? ¿Cómo se siente tu cuerpo al imaginarlo?
 
-Suelta una cuerda.<br/>
-Visualiza simbólicamente que le quitas una cuerda al monstruo. ¿Qué cambia? ¿Qué emoción aparece en su lugar?<br/><br/>
+El cuerpo habla cuando la voz calla.
+¿Dónde sientes este silencio en el cuerpo? Dibuja esa zona. ¿Tiene forma, temperatura, textura?
 
-El orden no es igual a paz.<br/>
-Escribe una frase que te recuerde que soltar no es fallar. Ejemplo: “Confío en lo que no depende de mí.”<br/><br/>
+Ritual de liberación simbólica:
+Escribe lo no dicho en una hoja. Puedes leerlo en voz alta para ti o romperlo después. El acto de decir, aunque sea en soledad, ya es sanación.
 `,
-      `¿Qué palabra no ha podido salir?<br/>
-Recuerda una emoción, frase o verdad que has guardado por miedo, vergüenza o por no herir a otros. ¿Qué parte de ti se quedó atrapada ahí?<br/><br/>
+      `¿A quién observa con lupa esta parte de ti?
+Piensa en las personas con las que más te comparas. ¿Qué tienen que crees que a ti te falta?
 
-¿Qué protege tu silencio?<br/>
-¿A quién cuida esta parte que calla? ¿Qué teme que pase si se expresa?<br/><br/>
+¿Qué crees que dice de ti no tener eso?
+¿Qué narrativa se activa cuando comparas tu cuerpo, logros, relaciones o emociones? ¿Qué juicio nace en silencio?
 
-Imagina que sí pudieras hablar.<br/>
-Si tu voz fuera libre y segura, ¿qué dirías? ¿Cómo se siente tu cuerpo al imaginarlo?<br/><br/>
+Escucha a la voz que te exige.
+¿Es tuya o heredada? ¿Desde cuándo te mides con otros como si fuera una competencia?
 
-El cuerpo habla cuando la voz calla.<br/>
-¿Dónde sientes este silencio en el cuerpo? Dibuja esa zona. ¿Tiene forma, temperatura, textura?<br/><br/>
+¿Qué historia no se ve en la vida ajena?
+Recuerda: lo visible es solo una parte. ¿Qué puede estar escondido detrás de esa “vida perfecta” que observas?
 
-Ritual de liberación simbólica:<br/>
-Escribe lo no dicho en una hoja. Puedes leerlo en voz alta para ti o romperlo después. El acto de decir, aunque sea en soledad, ya es sanación.<br/><br/>
-`,
-      `¿A quién observa con lupa esta parte de ti?<br/>
-Piensa en las personas con las que más te comparas. ¿Qué tienen que crees que a ti te falta?<br/><br/>
-
-¿Qué crees que dice de ti no tener eso?<br/>
-¿Qué narrativa se activa cuando comparas tu cuerpo, logros, relaciones o emociones? ¿Qué juicio nace en silencio?<br/><br/>
-
-Escucha a la voz que te exige.<br/>
-¿Es tuya o heredada? ¿Desde cuándo te mides con otros como si fuera una competencia?<br/><br/>
-
-¿Qué historia no se ve en la vida ajena?<br/>
-Recuerda: lo visible es solo una parte. ¿Qué puede estar escondido detrás de esa “vida perfecta” que observas?<br/><br/>
-
-La única medida eres tú.<br/>
-Escribe una afirmación que reafirme tu propio ritmo:<br/>
+La única medida eres tú.
+Escribe una afirmación que reafirme tu propio ritmo:
 “Mi camino tiene sentido, aunque no se parezca al de nadie más.” o “No soy menos por no estar donde otros están.”
 `,
-      `¿A qué momento regresa este fantasma?<br/>
-Evoca ese recuerdo al que vuelves una y otra vez. ¿Qué parte de ti se quedó allá? ¿Qué añoras realmente?<br/><br/>
+      `¿A qué momento regresa este fantasma?
+Evoca ese recuerdo al que vuelves una y otra vez. ¿Qué parte de ti se quedó allá? ¿Qué añoras realmente?
 
-¿Qué emoción quedó congelada en el tiempo?<br/>
-¿Es tristeza, culpa, amor no expresado, dolor no elaborado? ¿Qué no pudo decirse o vivirse en ese entonces?<br/><br/>
+¿Qué emoción quedó congelada en el tiempo?
+¿Es tristeza, culpa, amor no expresado, dolor no elaborado? ¿Qué no pudo decirse o vivirse en ese entonces?
 
-¿Qué te impide despedirte?<br/>
-A veces no soltamos porque tememos olvidar. ¿Qué crees que perderías si dejaras ir? ¿Qué aún necesita ser reconocido?<br/><br/>
+¿Qué te impide despedirte?
+A veces no soltamos porque tememos olvidar. ¿Qué crees que perderías si dejaras ir? ¿Qué aún necesita ser reconocido?
 
-Habla con el fantasma.<br/>
-Cierra los ojos y dile lo que nunca pudiste. Escríbele una carta. Puedes terminar con: “Te honro y ahora sigo adelante.”<br/><br/>
+Habla con el fantasma.
+Cierra los ojos y dile lo que nunca pudiste. Escríbele una carta. Puedes terminar con: “Te honro y ahora sigo adelante.”
 
-Llévalo contigo de otro modo.<br/>
-Transforma el recuerdo en algo que te acompañe sin atraparte. Dibuja un símbolo o elige un objeto que represente lo vivido… y lo superado.<br/><br/>
+Llévalo contigo de otro modo.
+Transforma el recuerdo en algo que te acompañe sin atraparte. Dibuja un símbolo o elige un objeto que represente lo vivido… y lo superado.
 `,
-      `¿En qué momento te sentiste sola por primera vez?<br/>
-Permite que esa escena regrese suavemente. ¿Quién se fue, se ausentó o no estuvo emocionalmente presente?<br/><br/>
+      `¿En qué momento te sentiste sola por primera vez?
+Permite que esa escena regrese suavemente. ¿Quién se fue, se ausentó o no estuvo emocionalmente presente?
 
-¿Cómo reacciona esta parte cuando alguien se aleja?<br/>
-¿Se activa el miedo, la necesidad de complacer, el enojo, la tristeza? ¿Qué haces para no sentir el vacío?<br/><br/>
+¿Cómo reacciona esta parte cuando alguien se aleja?
+¿Se activa el miedo, la necesidad de complacer, el enojo, la tristeza? ¿Qué haces para no sentir el vacío?
 
-¿Qué le dirías hoy a esa niña que esperó compañía?<br/>
-Imagina que puedes abrazarla y hablarle desde tu adultez. ¿Qué palabras necesitaría oír para no sentir que el amor siempre se va?<br/><br/>
+¿Qué le dirías hoy a esa niña que esperó compañía?
+Imagina que puedes abrazarla y hablarle desde tu adultez. ¿Qué palabras necesitaría oír para no sentir que el amor siempre se va?
 
-Estás contigo. Y eso también es compañía.<br/>
-¿Qué ritual o acto puedes hacer para acompañarte mejor cuando aparece esa sensación de abandono?<br/><br/>
+Estás contigo. Y eso también es compañía.
+¿Qué ritual o acto puedes hacer para acompañarte mejor cuando aparece esa sensación de abandono?
 
-Escribe esta frase:<br/>
-“Mi presencia es un refugio, no un castigo. No estoy sola cuando me abrazo.”<br/><br/>`
+Escribe esta frase:
+“Mi presencia es un refugio, no un castigo. No estoy sola cuando me abrazo.”`
     ];
 
     const cards = document.querySelectorAll('.card');
