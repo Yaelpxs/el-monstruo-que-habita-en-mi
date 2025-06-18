@@ -102,7 +102,7 @@
       }
     }
     #modal-text {
-    white-space: pre-wrap;
+    **white-space: pre-wrap;** /* Esta línea es importante para la Opción 2 */
   }
   </style>
 </head>
@@ -111,7 +111,6 @@
   <h1>"El monstruo que habita en mí"</h1>
 
   <div class="card-container">
-    <!-- Cada tarjeta se vincula con un modal de texto por índice -->
     <div class="card" data-index="0">
       <img src="img/critico.jpg" alt="Imagen 1">
     </div>
@@ -145,7 +144,6 @@
     📜 Psic. Frida Atala Pulido Sánchez
   </div>
 
-  <!-- Modal -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close" id="closeModal">&times;</span>
@@ -155,8 +153,8 @@
 
   <script>
     const textos = [
-      `¿Cómo habla este monstruo dentro de ti?<br/>
-Escribe o comparte una frase que te repitas con dureza. ¿A quién se parece esa voz?\n
+      `¿Cómo habla este monstruo dentro de ti?
+Escribe o comparte una frase que te repitas con dureza. ¿A quién se parece esa voz?
 
 ¿En qué momentos aparece más fuerte?
 Recuerda una situación reciente en la que sentiste que todo lo hacías mal. ¿Qué esperabas de ti?
@@ -168,8 +166,7 @@ Dibújalo con menos ojos.
 ¿Qué cambiaría si no pudiera verte todo el tiempo? ¿Qué emoción surgiría si lo miraras con compasión?
 
 Transfórmalo en un aliado.
-Si este monstruo pudiera ayudarte de otra manera, ¿cuál sería? Redefine su función.
-`,
+Si este monstruo pudiera ayudarte de otra manera, ¿cuál sería? Redefine su función.`,
       `¿Dónde sientes el vacío?
 Ubica en tu cuerpo ese hueco silencioso. ¿Tiene forma, peso o temperatura? ¿Desde cuándo lo cargas?
 
@@ -183,8 +180,7 @@ Habla con él.
 Imagínalo frente a ti como una sombra sin rostro. ¿Qué le dirías si pudiera escucharte sin juzgarte?
 
 Llévale algo.
-¿Qué le ofrecerías para que no duela tanto: una palabra, una imagen, una canción, un recuerdo? Anótalo o dibújalo.
-`,
+¿Qué le ofrecerías para que no duela tanto: una palabra, una imagen, una canción, un recuerdo? Anótalo o dibújalo.`,
       `¿Dónde arde dentro de ti?
 Cierra los ojos. Identifica el lugar en tu cuerpo donde sientes esa quemazón interna. ¿Cómo se manifiesta? ¿Es constante, intermitente, punzante?
 
@@ -212,8 +208,7 @@ Suelta una cuerda.
 Visualiza simbólicamente que le quitas una cuerda al monstruo. ¿Qué cambia? ¿Qué emoción aparece en su lugar?
 
 El orden no es igual a paz.
-Escribe una frase que te recuerde que soltar no es fallar. Ejemplo: “Confío en lo que no depende de mí.”
-`,
+Escribe una frase que te recuerde que soltar no es fallar. Ejemplo: “Confío en lo que no depende de mí.”`,
       `¿Qué palabra no ha podido salir?
 Recuerda una emoción, frase o verdad que has guardado por miedo, vergüenza o por no herir a otros. ¿Qué parte de ti se quedó atrapada ahí?
 
@@ -227,8 +222,7 @@ El cuerpo habla cuando la voz calla.
 ¿Dónde sientes este silencio en el cuerpo? Dibuja esa zona. ¿Tiene forma, temperatura, textura?
 
 Ritual de liberación simbólica:
-Escribe lo no dicho en una hoja. Puedes leerlo en voz alta para ti o romperlo después. El acto de decir, aunque sea en soledad, ya es sanación.
-`,
+Escribe lo no dicho en una hoja. Puedes leerlo en voz alta para ti o romperlo después. El acto de decir, aunque sea en soledad, ya es sanación.`,
       `¿A quién observa con lupa esta parte de ti?
 Piensa en las personas con las que más te comparas. ¿Qué tienen que crees que a ti te falta?
 
@@ -243,8 +237,7 @@ Recuerda: lo visible es solo una parte. ¿Qué puede estar escondido detrás de 
 
 La única medida eres tú.
 Escribe una afirmación que reafirme tu propio ritmo:
-“Mi camino tiene sentido, aunque no se parezca al de nadie más.” o “No soy menos por no estar donde otros están.”
-`,
+“Mi camino tiene sentido, aunque no se parezca al de nadie más.” o “No soy menos por no estar donde otros están.”`,
       `¿A qué momento regresa este fantasma?
 Evoca ese recuerdo al que vuelves una y otra vez. ¿Qué parte de ti se quedó allá? ¿Qué añoras realmente?
 
@@ -258,8 +251,7 @@ Habla con el fantasma.
 Cierra los ojos y dile lo que nunca pudiste. Escríbele una carta. Puedes terminar con: “Te honro y ahora sigo adelante.”
 
 Llévalo contigo de otro modo.
-Transforma el recuerdo en algo que te acompañe sin atraparte. Dibuja un símbolo o elige un objeto que represente lo vivido… y lo superado.
-`,
+Transforma el recuerdo en algo que te acompañe sin atraparte. Dibuja un símbolo o elige un objeto que represente lo vivido… y lo superado.`,
       `¿En qué momento te sentiste sola por primera vez?
 Permite que esa escena regrese suavemente. ¿Quién se fue, se ausentó o no estuvo emocionalmente presente?
 
@@ -273,7 +265,7 @@ Estás contigo. Y eso también es compañía.
 ¿Qué ritual o acto puedes hacer para acompañarte mejor cuando aparece esa sensación de abandono?
 
 Escribe esta frase:
-“Mi presencia es un refugio, no un castigo. No estoy sola cuando me abrazo.”`
+“Mi presencia es un refugio, no un castigo. No estoy sola cuando me abrazo.”`
     ];
 
     const cards = document.querySelectorAll('.card');
@@ -284,7 +276,7 @@ Escribe esta frase:
     cards.forEach(card => {
       card.addEventListener('click', () => {
         const index = card.getAttribute('data-index');
-        modalText.innerHTML = textos[index];
+        modalText.textContent = textos[index]; // Cambiado a textContent
         modal.style.display = 'flex';
       });
     });
